@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\..\\App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  export let connection;\n  let allRolls = [];\n\n  function requestRoll() {\n    connection.emit(\"request-roll\");\n  }\n\n  connection.on(\"update\", function(registry) {\n    allRolls = registry;\n  });\n</script>\n\n<style>\n  h1 {\n    color: red;\n    font-family: \"Georgia\", Serif;\n  }\n</style>\n\n<div>\n  <h1>Roller!</h1>\n  <button on:click={requestRoll}>Test Your Luck</button>\n  <div class=\"registry\">\n    {#each allRolls as roll}\n      <p>{roll}</p>\n    {/each}\n  </div>\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AAcE,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,GAAG,CACV,WAAW,CAAE,SAAS,CAAC,CAAC,KAAK,AAC/B,CAAC"
+}
