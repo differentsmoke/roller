@@ -17,6 +17,6 @@ function start(done) {
 }
 
 exports.default = series(build, start, (done) => {
-    watch("svelte-app/*", build);
+    watch("svelte-app/**/*", build);
     done();
 });
